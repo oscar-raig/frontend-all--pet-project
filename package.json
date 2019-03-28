@@ -2,9 +2,20 @@
   "name": "frontend-all--pet-project",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "lib/",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean:lib": "rimraf ./lib/*",
+    "co": "sui-mono commit",
+    "lib": "npm run lib:styles",
+    "lib:styles": "cpx './src/**/*.scss' lib/",
+    "lint": "npm run lint:sass",
+    "lint:sass": "sui-lint sass",
+    "phoenix": "npx @s-ui/mono phoenix",
+    "precommit": "sui-precommit run",
+    "prelib": "npm run clean:lib -s",
+    "prepublish": "npm run lib",
+    "release": "sui-mono release",
+    "release:check": "sui-mono check"
   },
   "repository": {
     "type": "git",
